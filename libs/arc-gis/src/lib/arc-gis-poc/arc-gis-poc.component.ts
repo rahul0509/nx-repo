@@ -222,12 +222,13 @@ export class ArcGisPocComponent implements OnInit {
       },
       renderer: renderer,
     });
+    // reactiveUtils
+    //   .watch(() =>
+    //     mapView.graphics.map((it) => ({ layer: it.layer, geo: it.geometry, d: it.attributes }))
+    //   )
+    //   .then((res) => console.log('result', res));
 
-    map.add(featureLayer);
-
-    featureLayer.queryExtent().then((extent) => {
-      console.log('Extent: ', extent);
-    });
+    map.layers.add(featureLayer);
   }
 
   // Add Widgets
