@@ -5,7 +5,7 @@ import { ArcGisPocComponent } from '@rahul/arc-gis';
 import { AngularSplitModule } from 'angular-split';
 import { AgGridDataService } from './services';
 import { Todo, User } from './models';
-import { Observable, tap } from 'rxjs';
+import { Observable, of, tap } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { PetService } from '@rahul/pet-api';
 
@@ -33,7 +33,7 @@ export class AppComponent {
     this.agUsersInfo$ = this.agGridDataService.passUsersInfo();
     this.agMultiInfo$ = this.agGridDataService.passMergedinfo();
 
-    this.petService.getPetById(1).pipe(tap(console.log)).subscribe();
+    this.petService.getPetById(1).pipe().subscribe();
     // this.petService.findPetsByTags(['']).pipe(tap(console.log)).subscribe();
   }
 }
