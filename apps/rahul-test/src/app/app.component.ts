@@ -5,7 +5,7 @@ import { ArcGisPocComponent } from '@rahul/arc-gis';
 import { AngularSplitModule } from 'angular-split';
 import { AgGridDataService } from './services';
 import { Todo, User } from './models';
-import { Observable, tap } from 'rxjs';
+import { Observable, of, tap } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { PetService } from '@rahul/pet-api';
 

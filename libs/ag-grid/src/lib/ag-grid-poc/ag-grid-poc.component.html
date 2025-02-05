@@ -1,8 +1,14 @@
+<!-- @let todoInfos = todoInfo(); -->
+@let todoInfos = [ { "userId": 1, "id": 1, "title": "delectus aut autem",
+"completed": false }, { "userId": 1, "id": 2, "title": "quis ut nam facilis etofficia qui", "completed": false }];
+
+<button (click)="exportData(todoInfos)">Export</button>
 <ag-grid-angular
   [pagination]="true"
   style="height: 100vh"
-  [rowData]="todoInfo()"
+  [rowData]="todoInfos"
   [columnDefs]="colDefs"
   [defaultColDef]="defaultColDef"
   [autoSizePadding]="20"
+  [rowGroupPanelShow]="'always'"
 />
