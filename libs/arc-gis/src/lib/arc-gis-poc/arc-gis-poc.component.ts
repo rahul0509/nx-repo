@@ -222,13 +222,29 @@ export class ArcGisPocComponent implements OnInit {
       },
       renderer: renderer,
     });
-    // reactiveUtils
-    //   .watch(() =>
-    //     mapView.graphics.map((it) => ({ layer: it.layer, geo: it.geometry, d: it.attributes }))
-    //   )
-    //   .then((res) => console.log('result', res));
-
+    reactiveUtils.watch(() => mapView.extent, (newVal) => {
+      // Each time the value of map.basemap changes, it is logged in the console
+      console.log("new basemap: ", newVal);
+    });
     map.layers.add(featureLayer);
+
+    mapView.when(() => {
+      console.log("MapView is Ready");
+      console.log("is map updating", mapView.updating);
+    });
+    mapView.watch("ready", (isReady)=> console.log("Map Ready", isReady, featureLayer.layerId, featureLayer))
+
+    mapView.watch("updating", (isUpdating)=> console.log("Map Updating", isUpdating));
+
+    // mapView.on("pointer-move", () => console.log("user is interacting"));
+    mapView.on("drag", () => console.log("user is interacting with drag"));
+
+    mapView.watch("stationary", (isStationary) => console.log("Map is idle, isStationary::", isStationary));
+    // mapView.destroy();
+    // console.log("MapView destroyed");
+    mapView.watch('fatalError', (error) => console.log('error', error));
+    mapView.on("layerview-create", (event)=> console.log("Layer created:", event, event.layer.title));
+    mapView.watch(["zoom", "scale", "rotation"], (newZoom, scale, rotation) => console.log(`new Zoom Level:: ${newZoom}, New Scale ${scale}, new Rotation::${rotation}`));
   }
 
   // Add Widgets
