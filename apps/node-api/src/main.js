@@ -1,21 +1,18 @@
 import express from 'express';
-// import * as cors from 'cors';
+import cors from 'cors';
 const app = express();
+const routes = require('./route');
 
-// app.use(cors());
+app.use(cors());
 
-const host = process.env.HOST ?? 'localhost';
-const port = process.env.PORT ? Number(process.env.PORT) : 3000;
+// add these so req.body is populated for JSON and form data
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use('/api/v1', routes);
 
 app.use((req, res, next) => {
   res.setHeader('Content-Type', 'application/json');
   next();
 });
 
-app.get('/test', (req, res) => {
-  res.json({ message: 'Hello API' });
-});
-
-app.listen(port, host, () => {
-  console.log(`[ ready ] http://${host}:${port}`);
-});
+module.exports = app;

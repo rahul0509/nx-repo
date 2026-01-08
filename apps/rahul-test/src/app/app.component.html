@@ -2,7 +2,7 @@
 
 <div class="splitter-conatiner">
   <as-split [direction]="'horizontal'">
-    <as-split-area [size]="0">
+    <as-split-area [size]="50">
       <as-split [direction]="'vertical'">
         <as-split-area>
           <h2>Todo Container</h2>
@@ -10,13 +10,13 @@
         </as-split-area>
         <as-split-area>
           <h2>User Container</h2>
-          <!-- <lib-ag-grid-multi [userInfo]="agMultiInfo$ | async"></lib-ag-grid-multi> -->
+          <lib-ag-grid-multi [userInfo]="agUsersInfo$ | async"></lib-ag-grid-multi>
         </as-split-area>
       </as-split>
     </as-split-area>
     <as-split-area>
       <div>Chart Container</div>
-      <lib-arc-gis-poc></lib-arc-gis-poc>
+      <!-- <lib-arc-gis-poc></lib-arc-gis-poc> -->
     </as-split-area>
   </as-split>
 </div>

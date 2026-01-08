@@ -10,6 +10,7 @@ import {
   ModuleRegistry,
   PaginationModule,
 } from 'ag-grid-enterprise';
+ import { User } from '@rahul/pet-api';
 
 ModuleRegistry.registerModules([
   AllCommunityModule,
@@ -27,7 +28,7 @@ ModuleRegistry.registerModules([
   styleUrl: './ag-grid-multi.component.css',
 })
 export class AgGridMultiComponent {
-  userInfo = input<any>();
+  userInfo = input<User[]>();
   // Column Definitions: Defines the columns to be displayed.
   colDefs: ColDef[] = [
     { field: 'userId', hide: true, sort: 'asc' },

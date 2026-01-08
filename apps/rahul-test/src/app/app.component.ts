@@ -12,7 +12,7 @@ import { PetService } from '@rahul/pet-api';
 @Component({
   imports: [
     AgGridPocComponent,
-    ArcGisPocComponent,
+    // ArcGisPocComponent,
     RouterModule,
     AngularSplitModule,
     CommonModule,
