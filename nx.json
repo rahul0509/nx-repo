@@ -19,7 +19,6 @@
     ],
     "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
   },
-  "nxCloudId": "67894b3ef2e9f7423338b592",
   "targetDefaults": {
     "@angular-devkit/build-angular:application": {
       "cache": true,
@@ -96,5 +95,6 @@
     "@nx/angular:component": {
       "style": "scss"
     }
-  }
+  },
+  "terminal.integrated.cwd": "C:/Rahul/Learning/nx-repo"
 }

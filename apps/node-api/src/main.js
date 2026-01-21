@@ -1,21 +1,37 @@
-import express from 'express';
-// import * as cors from 'cors';
-const app = express();
+import { ApolloServer } from '@apollo/server';
+import { startStandaloneServer } from '@apollo/server/standalone';
 
-// app.use(cors());
+const typeDefs = require('./schema/actor');
+const resolvers = require('./api/resolvers/index');
 
-const host = process.env.HOST ?? 'localhost';
-const port = process.env.PORT ? Number(process.env.PORT) : 3000;
+const server = new ApolloServer({ typeDefs, resolvers });
 
-app.use((req, res, next) => {
-  res.setHeader('Content-Type', 'application/json');
-  next();
-});
+(async () => {
+  const { url } = await startStandaloneServer(server, {
+    listen: { port: 4000 },
+  });
 
-app.get('/test', (req, res) => {
-  res.json({ message: 'Hello API' });
-});
+  console.log(`Server ready at: ${url}`);
+})();
 
-app.listen(port, host, () => {
-  console.log(`[ ready ] http://${host}:${port}`);
-});
+// import express from 'express';
+// // import * as cors from 'cors';
+// const app = express();
+
+// // app.use(cors());
+
+// const host = process.env.HOST ?? 'localhost';
+// const port = process.env.PORT ? Number(process.env.PORT) : 3000;
+
+// app.use((req, res, next) => {
+//   res.setHeader('Content-Type', 'application/json');
+//   next();
+// });
+
+// app.get('/test', (req, res) => {
+//   res.json({ message: 'Hello API' });
+// });
+
+// app.listen(port, host, () => {
+//   console.log(`[ ready ] http://${host}:${port}`);
+// });
