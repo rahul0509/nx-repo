@@ -1,3 +1,7 @@
 {
-  "terminal.integrated.cwd": "c:/Rahul/Learning/nx-repo"
+  "terminal.integrated.cwd": "c://Rahul//Learning//nx-repo",
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
 }

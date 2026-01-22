@@ -1,0 +1,9 @@
+{
+  "name": "text-utils-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/react-e2e/src",
+  "implicitDependencies": ["text-utils"],
+  "// targets": "to see all targets run: nx show project text-utils-e2e --web",
+  "targets": {}
+}
