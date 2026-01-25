@@ -72,6 +72,7 @@
     "angular-eslint": "^19.0.2",
     "autoprefixer": "^10.4.0",
     "babel-jest": "^29.7.0",
+    "bootstrap": "^5.3.8",
     "cypress": "^13.13.0",
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^9.0.0",
