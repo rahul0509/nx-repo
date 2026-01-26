@@ -1,28 +1,37 @@
 import { useState } from 'react';
 
 // https://react.dev/reference/react/hooks
-export function TextForm(props: { heading: string; darkMode: boolean }) {
+export function TextForm(props: {
+  heading: string;
+  darkMode: boolean;
+  showAlert: (message: string, type: string) => void;
+}) {
   const handleUpClick = () => {
     const newText = text.toUpperCase();
     setText(newText);
+    props.showAlert('Converted to Uppercase!', 'Success');
   };
 
   const handleLowClick = () => {
     const newText = text.toLowerCase();
     setText(newText);
+    props.showAlert('Converted to Lowercase!', 'Success');
   };
 
   const handleClearClick = () => {
     const newText = '';
     setText(newText);
+    props.showAlert('Text Cleared!', 'Success');
   };
 
   const handleCopyClick = () => {
     navigator.clipboard.writeText(text);
+    props.showAlert('Copied to Clipboard!', 'Success');
   };
   const handleExtraSpacesClick = () => {
     const newText = text.split(/[ ]+/).join(' ');
     setText(newText);
+    props.showAlert('Extra spaces removed!', 'Success');
   };
 
   const handleOnChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
